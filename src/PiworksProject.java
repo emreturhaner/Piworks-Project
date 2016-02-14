@@ -93,8 +93,8 @@ public class PiworksProject {
 		return list;
 	}
 
-	// **setting original triangle to load original number's and check these are
-	// prime or not**
+	// **setting original triangle to load original number's to check these are
+	// prime or not. actually it clones triangle to hold another one with original values of elements**
 	public static List<Node> setOriginalTriangle() {
 		for (Node n : referenceTriangle) {
 			Node newNode = new Node();
@@ -137,6 +137,8 @@ public class PiworksProject {
 
 	// **setting triangle's element**
 	public static void setTriangleWithLimit() {
+		int randLimit;
+		randLimit= limitOfTriangle*(limitOfTriangle+1);
 		for (int i = 0; i < limitOfTriangle; i++) {
 			for (int j = 0; j <= i; j++) {
 				Node node = new Node();
@@ -144,7 +146,7 @@ public class PiworksProject {
 				node.setI(i);
 				node.setJ(j);
 				while (listSize + 1 != referenceTriangle.size()) {
-					int randNumber = rand.nextInt(20) + 3;
+					int randNumber = rand.nextInt(randLimit) + 3;
 					node.setValue(randNumber);
 					if (!referenceTriangle.contains(node)) {
 						referenceTriangle.add(node);
